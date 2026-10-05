@@ -1,0 +1,27 @@
+{
+  "name": "safebus-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "scripts": {
+    "format": "prettier --write src scripts tests server.mjs package.json README.md",
+    "format:check": "prettier --check src scripts tests server.mjs package.json README.md",
+    "build": "node scripts/build.mjs",
+    "start": "node server.mjs",
+    "dev": "node --watch scripts/dev.mjs",
+    "test": "node --test tests/api.test.mjs",
+    "test:ui": "node tests/browser.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "material-symbols": "^0.47.6"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "playwright": "^1.63.0",
+    "prettier": "^3.9.9"
+  }
+}
