@@ -1,3 +1,4 @@
+import { brandMark } from "../src/brand.mjs";
 import { mkdir, copyFile, writeFile } from "node:fs/promises";
 import { render } from "../src/render.mjs";
 import { resolve } from "node:path";
@@ -36,10 +37,7 @@ for (const lang of ["en", "es"]) {
     render(lang, { terms: true, siteUrl }),
   );
 }
-await writeFile(
-  new URL("favicon.svg", dest),
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 44"><path fill="#0D2C54" d="M20 1 37 7v16c0 10-9 17-17 20C12 40 3 33 3 23V7Z"/><rect x="11" y="11" width="18" height="21" rx="4" fill="none" stroke="white" stroke-width="2.5"/><path d="M12 23h16M20 12v11" stroke="white" stroke-width="2.5"/><g fill="white"><circle cx="15" cy="28" r="1.5"/><circle cx="25" cy="28" r="1.5"/></g></svg>',
-);
+await writeFile(new URL("favicon.svg", dest), brandMark({ standalone: true }));
 await writeFile(
   new URL("robots.txt", dest),
   `User-agent: *\nAllow: /\nDisallow: /api/\n${siteUrl ? `Sitemap: ${siteUrl}/sitemap.xml\n` : ""}`,

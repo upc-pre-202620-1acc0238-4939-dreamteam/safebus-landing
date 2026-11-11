@@ -244,17 +244,18 @@ header {
 .brand {
   display: inline-flex;
   align-items: center;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: -0.8px;
   color: var(--primary);
   min-width: 120px;
   white-space: nowrap;
 }
 .brand svg {
-  width: 32px;
-  height: 36px;
-  margin-right: 4px;
+  width: 40px;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: 8px;
 }
 .brand-bus {
   color: var(--secondary);
@@ -391,7 +392,8 @@ header {
 }
 .mini-brand .brand svg {
   width: 18px;
-  height: 20px;
+  height: auto;
+  margin-right: 4px;
 }
 .hero-phone .case {
   font-size: 8px;
@@ -824,11 +826,10 @@ footer {
 .offline p {
   color: var(--primary);
 }
-.footer-inner .brand svg g[stroke] {
-  stroke: var(--primary);
-}
-.footer-inner .brand svg g[fill="white"] {
-  fill: var(--primary);
+.footer-inner .brand {
+  --brand-shield: #ffffff;
+  --brand-bus-body: var(--primary);
+  --brand-accent: #ffffff;
 }
 @media (min-width: 1001px) {
   .mobile-menu {
@@ -887,17 +888,17 @@ footer {
     gap: 8px;
   }
   .brand {
-    font-size: 20px;
+    font-size: 24px;
     min-width: 120px;
   }
   .brand svg {
-    width: 28px;
-    height: 32px;
+    width: 32px;
+    height: auto;
   }
   .header-cta {
     padding: 8px;
     font-size: 14px;
-    max-width: 160px;
+    max-width: 144px;
     min-height: 56px;
   }
   .hero {

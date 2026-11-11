@@ -1,7 +1,8 @@
+import { brandMark } from "./brand.mjs";
 import { content } from "./content.mjs";
 const icon = (name) => `<span class="icon" aria-hidden="true">${name}</span>`;
 const logo = () =>
-  `<span class="brand"><svg viewBox="0 0 40 44" aria-hidden="true"><path fill="currentColor" d="M20 1 37 7v16c0 10-9 17-17 20C12 40 3 33 3 23V7Z"/><g fill="none" stroke="white" stroke-width="2.5"><rect x="11" y="11" width="18" height="21" rx="4"/><path d="M12 23h16M20 12v11M13 33v3m14-3v3"/></g><g fill="white"><circle cx="15" cy="28" r="1.5"/><circle cx="25" cy="28" r="1.5"/></g></svg><span>Safe<span class="brand-bus">Bus</span></span></span>`;
+  `<span class="brand">${brandMark()}<span>Safe<span class="brand-bus">Bus</span></span></span>`;
 const cta = (t) => `<a class="button primary" href="#contact">${t.demo}</a>`;
 const cases = (t) =>
   `<div class="case-list"><span class="case critical">${icon("warning")} ${t.critical}</span><span class="case high">${icon("shield")} ${t.high}</span><span class="case pending">${icon("schedule")} ${t.pending}</span></div>`;
