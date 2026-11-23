@@ -88,3 +88,24 @@ test("US15: validation, durable receipts, idempotency and private storage", asyn
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test("GET /api/health returns operational status and server uptime", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "safebus-health-test-"));
+  const server = createApp({ dbPath: join(dir, "health.sqlite") });
+  const base = await listen(server);
+  try {
+    const res = await fetch(`${base}/api/health`);
+    assert.equal(res.status, 200);
+    const data = await res.json();
+    assert.equal(data.status, "ok");
+    assert.ok(typeof data.uptime === "number");
+    assert.ok(Date.parse(data.timestamp));
+
+    const postRes = await fetch(`${base}/api/health`, { method: "POST" });
+    assert.equal(postRes.status, 405);
+  } finally {
+    await close(server);
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
