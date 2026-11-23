@@ -3,3 +3,6 @@ dist/
 data/
 test-results/
 .env
+.DS_Store
+Thumbs.db
+*.log

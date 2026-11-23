@@ -171,6 +171,7 @@ export const content = {
       ],
     ],
     back: "Back to SafeBus",
+    backToTop: "Back to top",
   },
   es: {
     title: "SafeBus | Seguridad en el transporte público",
@@ -349,5 +350,6 @@ export const content = {
       ],
     ],
     back: "Volver a SafeBus",
+    backToTop: "Volver arriba",
   },
 };

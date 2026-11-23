@@ -56,9 +56,13 @@ Ajustes funcionales respecto de las imágenes: consentimiento obligatorio según
 
 **La recepción almacena solicitudes; no envía correos ni notificaciones al equipo.** No se ha inventado una dirección comercial ni una integración SMTP. El equipo puede administrar el archivo SQLite privado o conectar posteriormente su sistema de atención.
 
+## Monitoreo y Diagnóstico
+
+- `GET /api/health`: Endpoint para sondas de salud (healthcheck) y plataformas en la nube. Devuelve código 200 con `{ status: "ok", uptime, timestamp }`.
+
 ## Configuración de publicación
 
-Variables de entorno (PowerShell):
+Se incluye la plantilla `.env.example` como referencia para la configuración. Variables de entorno (PowerShell):
 
 ```powershell
 $env:SITE_URL = 'https://su-dominio-real.example'
