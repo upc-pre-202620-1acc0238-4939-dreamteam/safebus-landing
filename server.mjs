@@ -38,6 +38,15 @@ export function createApp({
     };
     try {
       const url = new URL(req.url, "http://localhost");
+      if (url.pathname === "/api/health") {
+        if (!["GET", "HEAD"].includes(req.method))
+          return json(405, { error: "Method not allowed" });
+        return json(200, {
+          status: "ok",
+          uptime: Math.floor(process.uptime()),
+          timestamp: new Date().toISOString(),
+        });
+      }
       if (url.pathname === "/api/contact") {
         if (req.method !== "POST")
           return json(405, { error: "Method not allowed" });
